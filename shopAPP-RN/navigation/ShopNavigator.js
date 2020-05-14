@@ -1,11 +1,10 @@
 // import React from 'react'
 import {
-  // createStackNavigator,
+  createStackNavigator,
   // createDrawerNavigator,
   createAppContainer
 } from 'react-navigation'
 import { Platform } from 'react-native'
-import { createStackNavigator } from '@react-navigation/stack'
 // import { Ionicons } from '@expo/vector-icons'
 
 import ProductsOverviewScreen from '../screens/shop/ProductsOverviewScreen'
@@ -26,7 +25,8 @@ const defaultNavOptions = {
 const ProductsNavigator = createStackNavigator(
   {
     ProductsOverview: ProductsOverviewScreen
-
+    // ProductDetail: ProductDetailScreen,
+    // Cart: CartScreen
   },
   {
     defaultNavigationOptions: defaultNavOptions
