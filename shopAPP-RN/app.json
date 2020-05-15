@@ -3,7 +3,7 @@
     "name": "HelloWorld",
     "slug": "shopAPP-RN",
     "privacy": "public",
-    "sdkVersion": "33.0.0",
+    "sdkVersion": "35.0.0",
     "platforms": [
       "ios",
       "android",
