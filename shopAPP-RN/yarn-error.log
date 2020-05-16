@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add react-native-gesture-handler@~1.6.0
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add expo-font@~8.1.0
 
 PATH: 
   C:\Users\Elio\Desktop\cmdr\bin;C:\Users\Elio\Desktop\cmdr\vendor\bin;C:\Users\Elio\Desktop\cmdr\vendor\conemu-maximus5\ConEmu\Scripts;C:\Users\Elio\Desktop\cmdr\vendor\conemu-maximus5;C:\Users\Elio\Desktop\cmdr\vendor\conemu-maximus5\ConEmu;C:\Python27\;C:\Python27\Scripts;C:\Program Files\nodejs;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs\;C:\Users\Elio\AppData\Local\Android\Sdk\emulator;C:\WINDOWS\system32;C:\Windows\System32;C:\Program Files (x86)\Yarn\bin\;C:\Program Files\dotnet\;C:\Program Files\Java\jdk1.8.0_211\bin;C:\Users\Elio\AppData\Local\Android\Sdk;C:\Users\Elio\AppData\Local\Android\Sdk\emulator;C:\Users\Elio\AppData\Local\Android\Sdk\tools;C:\Users\Elio\AppData\Local\Android\Sdk\platform-tools;C:\Users\Elio\AppData\Local\Android\Sdk\tools\bin;C:\Users\Elio\AppData\Local\Android\Sdk\tools;C:\Users\Elio\AppData\Local\Android\Sdk\tools\bin;C:\Users\Elio\AppData\Local\Android\Sdk\platform-tools;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\ProgramData\chocolatey\lib\Elixir\bin;C:\Program Files\erl10.5\bin;C:\Program Files (x86)\Elixir\bin;C:\WINDOWS\system32\config\systemprofile\.mix\escripts;C:\ProgramData\chocolatey\lib\Elixir/bin;C:\Program Files\PostgreSQL\12\bin;C:\Users\Elio\AppData\Local\Programs\Python\Python37\Scripts\;C:\Users\Elio\AppData\Local\Yarn\bin;C:\Users\Elio\AppData\Local\Programs\Python\Python37\;C:\Users\Elio\AppData\Local\Microsoft\WindowsApps;C:\Users\Elio\AppData\Roaming\npm;C:\Users\Elio\AppData\Local\Android\Sdk\emulator;C:\Users\Elio\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Elio\AppData\Local\atom\bin;C:\Users\Elio\AppData\Local\GitHubDesktop\bin;C:\Users\Elio\AppData\Local\Microsoft\WindowsApps;C:\Users\Elio\Flutter_dev\bin;C:\Users\Elio\AppData\Local\Android\Sdk\tools;C:\Users\Elio\AppData\Local\Android\Sdk\tools\bin;C:\Users\Elio\AppData\Local\Android\Sdk\platform-tools;C:\Users\Elio\flutter\flutter\bin;C:\tools\dart-sdk\bin;C:\Users\Elio\AppData\Roaming\Pub\Cache\bin;C:\Users\Elio\Anaconda3\python.exe;C:\Users\Elio\AppData\Local\Android\Sdk;C:\Users\Elio\AppData\Local\Android\Sdk\tools;C:\Users\Elio\AppData\Local\Android\Sdk\platform-tools;C:\ProgramData\chocolatey\lib\Elixir\bin;C:\Users\Elio\Desktop\cmdr\vendor\git-for-windows\cmd;C:\Users\Elio\Desktop\cmdr\vendor\git-for-windows\mingw64\bin;C:\Users\Elio\Desktop\cmdr\vendor\git-for-windows\usr\bin;C:\Users\Elio\Desktop\cmdr
@@ -14,7 +14,7 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: EPERM: operation not permitted, unlink 'C:\Users\Elio\Desktop\ShopApp-RN\shopAPP-RN\node_modules\@babel\core\node_modules\json5\dist'
+  Error: EPERM: operation not permitted, unlink 'C:\Users\Elio\Desktop\ShopApp-RN\shopAPP-RN\node_modules\badgin\build'
 
 npm manifest: 
   {
@@ -28,12 +28,14 @@ npm manifest:
     },
     "dependencies": {
       "@expo/vector-icons": "^10.0.3",
-      "expo": "^33.0.0",
-      "expo-font": "^6.0.0",
+      "expo": "^35.0.0",
+      "expo-font": "^6.0.1",
       "moment": "^2.24.0",
       "react": "16.8.3",
       "react-dom": "^16.8.6",
-      "react-native": "https://github.com/expo/react-native/archive/sdk-33.0.0.tar.gz",
+      "react-native": "https://github.com/expo/react-native/archive/sdk-35.0.0.tar.gz",
+      "react-native-gesture-handler": "~1.6.0",
+      "react-native-screens": "~2.2.0",
       "react-native-web": "^0.11.4",
       "react-navigation": "^3.11.1",
       "react-navigation-header-buttons": "^3.0.1",
@@ -969,6 +971,13 @@ Lockfile:
       lodash "^4.17.13"
       to-fast-properties "^2.0.0"
   
+  "@egjs/hammerjs@^2.0.17":
+    version "2.0.17"
+    resolved "https://registry.yarnpkg.com/@egjs/hammerjs/-/hammerjs-2.0.17.tgz#5dc02af75a6a06e4c2db0202cae38c9263895124"
+    integrity sha512-XQsZgjm2EcVUiZQf11UBJQfmZeEmOW8DpI1gsFeln6w0ae0ii4dMQEQ0kjl6DspdWX1aGY1/loyXnP0JS06e/A==
+    dependencies:
+      "@types/hammerjs" "^2.0.36"
+  
   "@expo/vector-icons@^10.0.2", "@expo/vector-icons@^10.0.3":
     version "10.2.0"
     resolved "https://registry.yarnpkg.com/@expo/vector-icons/-/vector-icons-10.2.0.tgz#3c70656683a6a873e18efc00bc61fc160a80dc55"
@@ -1049,6 +1058,11 @@ Lockfile:
     version "2.0.32"
     resolved "https://registry.yarnpkg.com/@types/fbemitter/-/fbemitter-2.0.32.tgz#8ed204da0f54e9c8eaec31b1eec91e25132d082c"
     integrity sha1-jtIE2g9U6cjq7DGx7skeJRMtCCw=
+  
+  "@types/hammerjs@^2.0.36":
+    version "2.0.36"
+    resolved "https://registry.yarnpkg.com/@types/hammerjs/-/hammerjs-2.0.36.tgz#17ce0a235e9ffbcdcdf5095646b374c2bf615a4c"
+    integrity sha512-7TUK/k2/QGpEAv/BCwSHlYu3NXZhQ9ZwBYpzr9tjlPIL2C5BeGhH3DmVavRx3ZNyELX5TLC91JTz/cen6AAtIQ==
   
   "@types/invariant@^2.2.29":
     version "2.2.32"
@@ -4258,6 +4272,16 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
     integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
   
+  react-native-gesture-handler@~1.6.0:
+    version "1.6.1"
+    resolved "https://registry.yarnpkg.com/react-native-gesture-handler/-/react-native-gesture-handler-1.6.1.tgz#678e2dce250ed66e93af409759be22cd6375dd17"
+    integrity sha512-gQgIKhDiYf754yzhhliagLuLupvGb6ZyBdzYzr7aus3Fyi87TLOw63ers+r4kGw0h26oAWTAdHd34JnF4NeL6Q==
+    dependencies:
+      "@egjs/hammerjs" "^2.0.17"
+      hoist-non-react-statics "^2.3.1"
+      invariant "^2.2.4"
+      prop-types "^15.7.2"
+  
   react-native-platform-touchable@^1.1.1:
     version "1.1.1"
     resolved "https://registry.yarnpkg.com/react-native-platform-touchable/-/react-native-platform-touchable-1.1.1.tgz#fde4acc65eea585d28b164d0c3716a42129a68e4"
@@ -4269,6 +4293,13 @@ Lockfile:
     integrity sha512-WII/ulhpVyL/qbYb7vydq7dJAfZRBcEhg4/UWt6F6nAKpLa3gAceMOxBxI914ppwSP/TdUsandFy6lkJQE0z4A==
     dependencies:
       hoist-non-react-statics "^2.3.1"
+  
+  react-native-screens@~2.2.0:
+    version "2.2.0"
+    resolved "https://registry.yarnpkg.com/react-native-screens/-/react-native-screens-2.2.0.tgz#cc4cdf17426fdda97ad93a5e812a1899390f1978"
+    integrity sha512-a0VzxOWot7F9B/GQyDSssBRd3jUJazFnTQS61IiyReWB6aHlFhf3Xz10jBRoURXy1EMCDCHgenmTVTkKHpKyqQ==
+    dependencies:
+      debounce "^1.2.0"
   
   react-native-tab-view@^1.2.0, react-native-tab-view@^1.4.1:
     version "1.4.1"

@@ -48,7 +48,7 @@ const ProductItem = props => {
       </View>
     </View>
   )
-};
+}
 
 const styles = StyleSheet.create({
   product: {
@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
   title: {
     fontFamily: 'open-sans-bold',
     fontSize: 18,
-    marginVertical: 4
+    marginVertical: 2
   },
   price: {
     fontFamily: 'open-sans',
