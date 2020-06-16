@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
-// import { Text, View } from 'react-native'
 import { createStore, combineReducers } from 'redux'
 import { Provider } from 'react-redux'
 import { AppLoading } from 'expo'
 import * as Font from 'expo-font'
-import { composeWithDevTools } 'redux-devtools-extension'
 
 import productsReducer from './store/reducers/products'
+import cartReducer from './store/reducers/cart'
 import ShopNavigator from './navigation/ShopNavigator'
 
 const rootReducer = combineReducers({
@@ -14,7 +13,7 @@ const rootReducer = combineReducers({
   cart: cartReducer
 })
 
-const store = createStore(rootReducer, composeWithDevTools())
+const store = createStore(rootReducer)
 
 const fetchFonts = () => {
   return Font.loadAsync({
@@ -42,12 +41,3 @@ export default function App () {
     </Provider>
   )
 }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: '#fff',
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//   },
-// });
