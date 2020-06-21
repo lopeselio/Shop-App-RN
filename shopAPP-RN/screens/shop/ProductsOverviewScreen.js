@@ -61,6 +61,6 @@ ProductsOverviewScreen.navigationOptions = navData => {
       </HeaderButtons>
     )
   }
-};
+}
 
 export default ProductsOverviewScreen

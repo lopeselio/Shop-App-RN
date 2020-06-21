@@ -35,13 +35,13 @@ const ProductDetailScreen = props => {
       <Text style={styles.description}>{selectedProduct.description}</Text>
     </ScrollView>
   )
-};
+}
 
 ProductDetailScreen.navigationOptions = navData => {
   return {
     headerTitle: navData.navigation.getParam('productTitle')
   }
-};
+}
 
 const styles = StyleSheet.create({
   image: {
