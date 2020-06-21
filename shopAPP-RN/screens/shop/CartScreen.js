@@ -58,7 +58,7 @@ const CartScreen = props => {
       />
     </View>
   )
-}
+};
 
 CartScreen.navigationOptions = {
   headerTitle: 'Your Cart'
