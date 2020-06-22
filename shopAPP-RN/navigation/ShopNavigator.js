@@ -6,7 +6,7 @@ import {
 } from 'react-navigation'
 import { Platform } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
-
+import EditProductScreen from './../screens/user/EditProductsScreen'
 import ProductsOverviewScreen from '../screens/shop/ProductsOverviewScreen'
 import ProductDetailScreen from '../screens/shop/ProductDetailScreen'
 import CartScreen from '../screens/shop/CartScreen'
@@ -67,7 +67,8 @@ const OrdersNavigator = createStackNavigator(
 
 const AdminNavigator = createStackNavigator(
   {
-    UserProducts: UserProductsScreen
+    UserProducts: UserProductsScreen,
+    EditProduct: EditProductScreen
   },
   {
     navigationOptions: {
