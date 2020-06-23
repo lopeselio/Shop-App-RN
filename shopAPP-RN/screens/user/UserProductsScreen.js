@@ -12,7 +12,7 @@ const UserProductsScreen = props => {
   const userProducts = useSelector(state => state.products.userProducts)
   const dispatch = useDispatch()
 
-  const editProductHandler = (id) => {
+  const editProductHandler = id => {
     props.navigation.navigate('EditProduct', { productId: id })
   }
 
@@ -31,7 +31,7 @@ const UserProductsScreen = props => {
         >
           <Button
             color={Colors.primary}
-            title='Edit' 
+            title='Edit'
             onPress={() => {
               editProductHandler(itemData.item.id)
             }}
