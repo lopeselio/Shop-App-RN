@@ -62,6 +62,17 @@ UserProductsScreen.navigationOptions = navData => {
           }}
         />
       </HeaderButtons>
+    ),
+    headerRight: (
+      <HeaderButtons HeaderButtonComponent={HeaderButton}>
+        <Item
+          title='Add'
+          iconName={Platform.OS === 'android' ? 'md-create' : 'ios-create'}
+          onPress={() => {
+            navData.navigation.navigate('EditProduct')
+          }}
+        />
+      </HeaderButtons>
     )
   }
 }
