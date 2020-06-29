@@ -25,17 +25,17 @@ const formReducer = (state, action) => {
       ...state.inputValidities,
       [action.input]: action.isValid
     }
-    let formIsValid = true
+    let updatedFormIsValid = true
     for (const key in updatedValidities) {
-      formIsValid = formIsValid && updatedValidities[key]
+      updatedFormIsValid = updatedFormIsValid && updatedValidities[key]
     }
     return {
-      formIsValid: formIsValid,
+      formIsValid: updatedFormIsValid,
       inputValidities: updatedValidities,
       inputValues: updatedValues
     }
-
   }
+  return state
 }
 const EditProductScreen = props => {
   const prodId = props.navigation.getParam('productId')
