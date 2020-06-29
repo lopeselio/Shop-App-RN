@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect, useCallback, useReducer } from 'react'
 import {
   View,
   ScrollView,
@@ -14,12 +14,26 @@ import { useSelector, useDispatch } from 'react-redux'
 import HeaderButton from '../../components/UI/HeaderButton'
 import * as productsActions from '../../store/actions/products'
 
+const REDUCER_UPDATE = 'UPDATE'
+const formReducer = {state, action} => {
+  if (action.type === REDUCER_UPDATE) {
+
+  }
+}
 const EditProductScreen = props => {
   const prodId = props.navigation.getParam('productId')
   const editedProduct = useSelector(state =>
     state.products.userProducts.find(prod => prod.id === prodId)
   )
   const dispatch = useDispatch()
+    useReducer(formReducer, {
+      inputValues: {
+        title: editedProduct ? editedProduct.title : '',
+        imageUrl: editedProduct ? editedProduct.imageUrl : ''
+      },
+      inputValidities: {},
+      formIsValid: false
+    })
 
   const [title, setTitle] = useState(editedProduct ? editedProduct.title : '')
   const [titleIsValid, setTitleIsValid] = useState(false)
@@ -46,7 +60,7 @@ const EditProductScreen = props => {
         productsActions.createProduct(title, description, imageUrl, +price)
       )
     }
-  }, [dispatch, prodId, title, description, imageUrl, price])
+  }, [dispatch, prodId, title, description, imageUrl, price, titleIsValid])
 
   useEffect(() => {
     props.navigation.setParams({ submit: submitHandler })
