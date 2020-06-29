@@ -14,9 +14,9 @@ import { useSelector, useDispatch } from 'react-redux'
 import HeaderButton from '../../components/UI/HeaderButton'
 import * as productsActions from '../../store/actions/products'
 
-const REDUCER_UPDATE = 'UPDATE'
-const formReducer = {state, action} => {
-  if (action.type === REDUCER_UPDATE) {
+const FORM_INPUT_UPDATE = 'FORM_INPUT_UPDATE'
+const formReducer = (state, action) => {
+  if (action.type === FORM_INPUT_UPDATE) {
 
   }
 }
@@ -26,21 +26,21 @@ const EditProductScreen = props => {
     state.products.userProducts.find(prod => prod.id === prodId)
   )
   const dispatch = useDispatch()
-    useReducer(formReducer, {
-      inputValues: {
-        title: editedProduct ? editedProduct.title : '',
-        imageUrl: editedProduct ? editedProduct.imageUrl : '',
-        description: editedProduct ? editedProduct.description : '',
-        price: ''
-      },
-      inputValidities: {
-        title: editedProduct ? true : false,
-        imageUrl: editedProduct ? true : false,
-        description: editedProduct ? true : false,
-        price: editedProduct ? true : false
-      },
-      formIsValid: editedProduct ? true : false
-    })
+  const [formState, dispatchFormState] = useReducer(formReducer, {
+    inputValues: {
+      title: editedProduct ? editedProduct.title : '',
+      imageUrl: editedProduct ? editedProduct.imageUrl : '',
+      description: editedProduct ? editedProduct.description : '',
+      price: ''
+    },
+    inputValidities: {
+      title: !!editedProduct,
+      imageUrl: !!editedProduct,
+      description: !!editedProduct,
+      price: !!editedProduct
+    },
+    formIsValid: !!editedProduct
+  })
 
   // const [title, setTitle] = useState(editedProduct ? editedProduct.title : '')
   // const [titleIsValid, setTitleIsValid] = useState(false)
@@ -74,12 +74,18 @@ const EditProductScreen = props => {
   }, [submitHandler])
 
   const titleChangeHandler = text => {
-    if (text.trim().length === 0) {
-      setTitleIsValid(false)
-    } else {
-      setTitleIsValid(true)
-    }
-    setTitle(text)
+    let isValid = false
+    if (text.trim().length > 0) {
+      isValid = true
+      // setTitleIsValid(false)
+    } 
+    // setTitle(text)
+    dispatchFormState({ 
+      type: FORM_INPUT_UPDATE,
+      value: text,
+      isValid: isValid,
+      input: 'title' 
+    })
   }
 
   return (
