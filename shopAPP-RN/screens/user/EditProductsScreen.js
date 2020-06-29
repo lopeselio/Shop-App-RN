@@ -29,9 +29,19 @@ const EditProductScreen = props => {
     useReducer(formReducer, {
       inputValues: {
         title: editedProduct ? editedProduct.title : '',
-        imageUrl: editedProduct ? editedProduct.imageUrl : ''
+        imageUrl: editedProduct ? editedProduct.imageUrl : '',
+        description: editedProduct ? editedProduct.description : '',
+        price: ''
       },
-      inputValidities: {},
+      inputValidities: {
+        title: editedProduct ? true : false,
+        imageUrl: editedProduct ? true : false,
+        description: editedProduct ? true : false,
+        price: editedProduct ? true : false
+
+
+
+      },
       formIsValid: false
     })
 
