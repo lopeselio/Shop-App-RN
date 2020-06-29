@@ -73,7 +73,7 @@ const EditProductScreen = props => {
     props.navigation.setParams({ submit: submitHandler })
   }, [submitHandler])
 
-  const titleChangeHandler = text => {
+  const textChangeHandler = (inputIdentifier, text) => {
     let isValid = false
     if (text.trim().length > 0) {
       isValid = true
@@ -84,7 +84,7 @@ const EditProductScreen = props => {
       type: FORM_INPUT_UPDATE,
       value: text,
       isValid: isValid,
-      input: 'title' 
+      input: inputIdentifier
     })
   }
 
@@ -96,7 +96,7 @@ const EditProductScreen = props => {
           <TextInput
             style={styles.input}
             value={title}
-            onChangeText={titleChangeHandler}
+            onChangeText={textChangeHandler.bind(this, 'title')}
             autoCapitalize='sentences'
             autoCorrect
             returnKeyType='next'
@@ -110,7 +110,7 @@ const EditProductScreen = props => {
           <TextInput
             style={styles.input}
             value={imageUrl}
-            onChangeText={text => setImageUrl(text)}
+            onChangeText={textChangeHandler.bind(this, 'imageUrl')}
           />
         </View>
         {editedProduct ? null : (
@@ -119,7 +119,7 @@ const EditProductScreen = props => {
             <TextInput
               style={styles.input}
               value={price}
-              onChangeText={text => setPrice(text)}
+              onChangeText={textChangeHandler.bind(this, 'price')}
               keyboardType='decimal-pad'
             />
           </View>
@@ -129,7 +129,7 @@ const EditProductScreen = props => {
           <TextInput
             style={styles.input}
             value={description}
-            onChangeText={text => setDescription(text)}
+            onChangeText={textChangeHandler.bind(this, 'description')}
           />
         </View>
       </View>
