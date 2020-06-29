@@ -17,6 +17,23 @@ import * as productsActions from '../../store/actions/products'
 const FORM_INPUT_UPDATE = 'FORM_INPUT_UPDATE'
 const formReducer = (state, action) => {
   if (action.type === FORM_INPUT_UPDATE) {
+    const updatedValues = {
+      ...state.inputValues,
+      [action.input]: action.value
+    }
+    const updatedValidities = {
+      ...state.inputValidities,
+      [action.input]: action.isValid
+    }
+    let formIsValid = true
+    for (const key in updatedValidities) {
+      formIsValid = formIsValid && updatedValidities[key]
+    }
+    return {
+      formIsValid: formIsValid,
+      inputValidities: updatedValidities,
+      inputValues: updatedValues
+    }
 
   }
 }
