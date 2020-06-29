@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useReducer } from 'react'
+import React, { useEffect, useCallback, useReducer } from 'react'
 import {
   View,
   ScrollView,
@@ -38,22 +38,19 @@ const EditProductScreen = props => {
         imageUrl: editedProduct ? true : false,
         description: editedProduct ? true : false,
         price: editedProduct ? true : false
-
-
-
       },
-      formIsValid: false
+      formIsValid: editedProduct ? true : false
     })
 
-  const [title, setTitle] = useState(editedProduct ? editedProduct.title : '')
-  const [titleIsValid, setTitleIsValid] = useState(false)
-  const [imageUrl, setImageUrl] = useState(
-    editedProduct ? editedProduct.imageUrl : ''
-  )
-  const [price, setPrice] = useState('')
-  const [description, setDescription] = useState(
-    editedProduct ? editedProduct.description : ''
-  )
+  // const [title, setTitle] = useState(editedProduct ? editedProduct.title : '')
+  // const [titleIsValid, setTitleIsValid] = useState(false)
+  // const [imageUrl, setImageUrl] = useState(
+  //   editedProduct ? editedProduct.imageUrl : ''
+  // )
+  // const [price, setPrice] = useState('')
+  // const [description, setDescription] = useState(
+  //   editedProduct ? editedProduct.description : ''
+  // )
 
   const submitHandler = useCallback(() => {
     if (!titleIsValid) {
