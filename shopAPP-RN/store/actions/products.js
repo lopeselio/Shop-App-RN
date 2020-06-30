@@ -8,6 +8,7 @@ export const deleteProduct = productId => {
 
 export const createProduct = (title, description, imageUrl, price) => {
   return {
+    // async code 
     type: CREATE_PRODUCT,
     productData: {
       title,
@@ -28,4 +29,4 @@ export const updateProduct = (id, title, description, imageUrl) => {
       imageUrl
     }
   }
-};
+}
