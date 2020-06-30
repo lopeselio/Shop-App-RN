@@ -70,14 +70,14 @@ const EditProductScreen = props => {
   // )
 
   const submitHandler = useCallback(() => {
-    if (!titleIsValid) {
+    if (!formState.formIsValid) {
       Alert.alert('Wrong input!', 'Please check the errors in the form!',
         [{ text: 'Okay' }]
       )
     }
     if (editedProduct) {
       dispatch(
-        productsActions.updateProduct(prodId, title, description, imageUrl)
+        productsActions.updateProduct(prodId, formState.inputValues.title, formState.inputValues.description, formState.inputValues.imageUrl)
       )
     } else {
       dispatch(
@@ -112,7 +112,7 @@ const EditProductScreen = props => {
           <Text style={styles.label}>Title</Text>
           <TextInput
             style={styles.input}
-            value={title}
+            value={formState.inputValues.title}
             onChangeText={textChangeHandler.bind(this, 'title')}
             autoCapitalize='sentences'
             autoCorrect
@@ -126,7 +126,7 @@ const EditProductScreen = props => {
           <Text style={styles.label}>Image URL</Text>
           <TextInput
             style={styles.input}
-            value={imageUrl}
+            value={formState.inputValues.imageUrl}
             onChangeText={textChangeHandler.bind(this, 'imageUrl')}
           />
         </View>
@@ -135,7 +135,7 @@ const EditProductScreen = props => {
             <Text style={styles.label}>Price</Text>
             <TextInput
               style={styles.input}
-              value={price}
+              value={formState.inputValues.price}
               onChangeText={textChangeHandler.bind(this, 'price')}
               keyboardType='decimal-pad'
             />
@@ -145,7 +145,7 @@ const EditProductScreen = props => {
           <Text style={styles.label}>Description</Text>
           <TextInput
             style={styles.input}
-            value={description}
+            value={formState.inputValues.description}
             onChangeText={textChangeHandler.bind(this, 'description')}
           />
         </View>
