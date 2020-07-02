@@ -27,7 +27,6 @@ export const fetchProducts = () => {
           resData[key].price
         )
       )
-
     }
 
     dispatch({ type: SET_PRODUCTS, products: loadedProducts })
@@ -43,7 +42,7 @@ export const createProduct = (title, description, imageUrl, price) => {
   return async dispatch => {
     // any async code you want!
     const response = await fetch(
-      'https://shopapp-rn-f4814.firebaseio.com/products.json',
+      'https://rn-complete-guide.firebaseio.com/products.json',
       {
         method: 'POST',
         headers: {
@@ -83,4 +82,4 @@ export const updateProduct = (id, title, description, imageUrl) => {
       imageUrl
     }
   }
-};
+}
