@@ -10,7 +10,7 @@ export const createProduct = (title, description, imageUrl, price) => {
   const fetch = require('node-fetch')
   return async dispatch => {
     // any async code you want!
-    const response = await fetch('https://shopapp-rn-f4814.firebaseio.com/', {
+    const response = await fetch('https://rn-complete-guide.firebaseio.com/products.json', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
