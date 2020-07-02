@@ -10,7 +10,7 @@ export const fetchProducts = () => {
   return async dispatch => {
     // any async code you want!
     const response = await fetch(
-      'https://rn-complete-guide.firebaseio.com/products.json'
+      'https://https://shopapp-rn-f4814.firebaseio.com/products.json'
     )
 
     const resData = await response.json()
