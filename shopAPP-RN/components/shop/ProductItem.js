@@ -10,9 +10,6 @@ import {
 } from 'react-native'
 
 import Card from '../UI/Card'
-// import Card from '../UI/Card'
-
-
 
 const ProductItem = props => {
   let TouchableCmp = TouchableOpacity
