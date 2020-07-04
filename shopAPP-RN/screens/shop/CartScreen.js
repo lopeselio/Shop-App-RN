@@ -26,6 +26,9 @@ const CartScreen = props => {
     )
   })
   const dispatch = useDispatch()
+  const sendOrderHandler = () => {
+    dispatch(ordersActions.addOrder(cartItems, cartTotalAmount))
+  }
 
   return (
     <View style={styles.screen}>
@@ -40,9 +43,9 @@ const CartScreen = props => {
           color={Colors.accent}
           title='Order Now'
           disabled={cartItems.length === 0}
-          onPress={() => {
-            dispatch(ordersActions.addOrder(cartItems, cartTotalAmount))
-          }}
+          onPress={sendOrderHandler}
+          // dispatch(ordersActions.addOrder(cartItems, cartTotalAmount))
+          // }
         />
       </Card>
       <FlatList
