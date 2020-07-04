@@ -47,7 +47,7 @@ export const deleteProduct = productId => {
 
   return async dispatch => {
     await fetch(
-      `https://rn-complete-guide.firebaseio.com/products/${productId}.json`,
+      `https://shopapp-reactnative-e0556.firebaseio.com/products/${productId}.json`,
       {
         method: 'DELETE'
       }
@@ -62,7 +62,7 @@ export const createProduct = (title, description, imageUrl, price) => {
   return async dispatch => {
     // any async code you want!
     const response = await fetch(
-      'https://rn-complete-guide.firebaseio.com/products.json',
+      'https://shopapp-reactnative-e0556.firebaseio.com/products.json',
       {
         method: 'POST',
         headers: {
@@ -97,7 +97,7 @@ export const updateProduct = (id, title, description, imageUrl) => {
 
   return async dispatch => {
     await fetch(
-      `https://rn-complete-guide.firebaseio.com/products/${id}.json`,
+      `https://shopapp-reactnative-e0556.firebaseio.com/products/${id}.json`,
       {
         method: 'PATCH',
         headers: {
