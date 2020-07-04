@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback, useReducer } from 'react'
+import React, { useState, useEffect, useCallback, useReducer } from 'react'
 import {
   View,
   ScrollView,
@@ -13,6 +13,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import HeaderButton from '../../components/UI/HeaderButton'
 import * as productsActions from '../../store/actions/products'
 import Input from '../../components/UI/Input'
+import { isLoading } from 'expo-font'
 
 const FORM_INPUT_UPDATE = 'FORM_INPUT_UPDATE'
 
@@ -40,6 +41,8 @@ const formReducer = (state, action) => {
 }
 
 const EditProductScreen = props => {
+  const [isLoading, setIsLoading] = useState(false)
+  const [Error, setError] = useState()
   const prodId = props.navigation.getParam('productId')
   const editedProduct = useSelector(state =>
     state.products.userProducts.find(prod => prod.id === prodId)
@@ -69,6 +72,7 @@ const EditProductScreen = props => {
       ])
       return
     }
+    setIsLoading(true)
     if (editedProduct) {
       dispatch(
         productsActions.updateProduct(
