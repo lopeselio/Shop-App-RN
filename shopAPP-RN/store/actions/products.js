@@ -43,6 +43,8 @@ export const fetchProducts = () => {
 }
 
 export const deleteProduct = productId => {
+  const fetch = require('node-fetch')
+
   return async dispatch => {
     await fetch(
       `https://rn-complete-guide.firebaseio.com/products/${productId}.json`,
@@ -55,6 +57,8 @@ export const deleteProduct = productId => {
 }
 
 export const createProduct = (title, description, imageUrl, price) => {
+  const fetch = require('node-fetch')
+
   return async dispatch => {
     // any async code you want!
     const response = await fetch(
@@ -89,6 +93,8 @@ export const createProduct = (title, description, imageUrl, price) => {
 }
 
 export const updateProduct = (id, title, description, imageUrl) => {
+  const fetch = require('node-fetch')
+
   return async dispatch => {
     await fetch(
       `https://rn-complete-guide.firebaseio.com/products/${id}.json`,
