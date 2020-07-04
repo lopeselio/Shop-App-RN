@@ -14,8 +14,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import HeaderButton from '../../components/UI/HeaderButton'
 import * as productsActions from '../../store/actions/products'
 import Input from '../../components/UI/Input'
-import { isLoading } from 'expo-font'
-import { Colors } from 'react-native/Libraries/NewAppScreen'
+import Colors from '../../constants/Colors'
 
 const FORM_INPUT_UPDATE = 'FORM_INPUT_UPDATE'
 
@@ -44,7 +43,8 @@ const formReducer = (state, action) => {
 
 const EditProductScreen = props => {
   const [isLoading, setIsLoading] = useState(false)
-  const [Error, setError] = useState()
+  const [error, setError] = useState()
+
   const prodId = props.navigation.getParam('productId')
   const editedProduct = useSelector(state =>
     state.products.userProducts.find(prod => prod.id === prodId)
@@ -66,6 +66,12 @@ const EditProductScreen = props => {
     },
     formIsValid: !!editedProduct
   })
+
+  useEffect(() => {
+    if (error) {
+      Alert.alert('An error occurred!', error, [{ text: 'Okay' }])
+    }
+  }, [error])
 
   const submitHandler = useCallback(async () => {
     if (!formState.formIsValid) {
@@ -96,12 +102,12 @@ const EditProductScreen = props => {
           )
         )
       }
+      props.navigation.goBack()
     } catch (err) {
       setError(err.message)
-
     }
+
     setIsLoading(false)
-    props.navigation.goBack()
   }, [dispatch, prodId, formState])
 
   useEffect(() => {
@@ -127,6 +133,7 @@ const EditProductScreen = props => {
       </View>
     )
   }
+
   return (
     <KeyboardAvoidingView
       style={{ flex: 1 }}
