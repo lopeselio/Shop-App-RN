@@ -46,6 +46,10 @@ const ProductsOverviewScreen = props => {
   }, [loadProducts])
 
   useEffect(() => {
+    setIsLoading(true)
+    loadProducts().then(() => {
+      setIsLoading(false)
+    })
     loadProducts()
   }, [dispatch, loadProducts])
 
@@ -87,6 +91,8 @@ const ProductsOverviewScreen = props => {
 
   return (
     <FlatList
+      onRefresh={loadProducts}
+      refreshing={isLoading}
       data={products}
       keyExtractor={item => item.id}
       renderItem={itemData => (
