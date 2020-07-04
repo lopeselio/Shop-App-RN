@@ -69,7 +69,7 @@ const EditProductScreen = props => {
 
   useEffect(() => {
     if (error) {
-      Alert.alert('An error occured', error)
+      Alert.alert('An error occured', error, [{ text: 'Okay' }])
     }
   }, [error])
   // useEffect(() => {
