@@ -11,7 +11,7 @@ export const fetchProducts = () => {
     // any async code you want!
     try {
       const response = await fetch(
-        'https://shopapp-reactnative-e0556.firebaseio.com/products.json'
+        `https://shopapp-reactnative-e0556.firebaseio.com/products/${id}.json`
       )
 
       if (!response.ok) {
