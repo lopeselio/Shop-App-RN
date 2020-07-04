@@ -15,6 +15,7 @@ import HeaderButton from '../../components/UI/HeaderButton'
 import * as productsActions from '../../store/actions/products'
 import Input from '../../components/UI/Input'
 import { isLoading } from 'expo-font'
+import { Colors } from 'react-native/Libraries/NewAppScreen'
 
 const FORM_INPUT_UPDATE = 'FORM_INPUT_UPDATE'
 
@@ -119,6 +120,13 @@ const EditProductScreen = props => {
     [dispatchFormState]
   )
 
+  if (isLoading) {
+    return (
+      <View style={styles.centered}>
+        <ActivityIndicator size='large' color={Colors.primary} />
+      </View>
+    )
+  }
   return (
     <KeyboardAvoidingView
       style={{ flex: 1 }}
@@ -207,6 +215,11 @@ EditProductScreen.navigationOptions = navData => {
 const styles = StyleSheet.create({
   form: {
     margin: 20
+  },
+  centered: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 })
 
