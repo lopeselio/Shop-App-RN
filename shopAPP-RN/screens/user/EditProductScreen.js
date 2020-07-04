@@ -69,9 +69,14 @@ const EditProductScreen = props => {
 
   useEffect(() => {
     if (error) {
-      Alert.alert('An error occurred!', error, [{ text: 'Okay' }])
+      Alert.alert('An error occured', error)
     }
   }, [error])
+  // useEffect(() => {
+  //   if (error) {
+  //     Alert.alert('An error occurred!', error, [{ text: 'Okay' }])
+  //   }
+  // }, [error])
 
   const submitHandler = useCallback(async () => {
     if (!formState.formIsValid) {
