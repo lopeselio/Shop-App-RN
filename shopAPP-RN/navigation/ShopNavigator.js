@@ -2,6 +2,7 @@ import React from 'react'
 import {
   createStackNavigator,
   createDrawerNavigator,
+  createSwitchNavigator,
   createAppContainer
 } from 'react-navigation'
 import { Platform } from 'react-native'
@@ -13,6 +14,7 @@ import CartScreen from '../screens/shop/CartScreen'
 import OrdersScreen from '../screens/shop/OrdersScreen'
 import UserProductsScreen from '../screens/user/UserProductsScreen'
 import EditProductScreen from '../screens/user/EditProductScreen'
+import AuthScreen from '../screens/user/AuthScreen'
 import Colors from '../constants/Colors'
 
 const defaultNavOptions = {
@@ -98,4 +100,18 @@ const ShopNavigator = createDrawerNavigator(
   }
 )
 
-export default createAppContainer(ShopNavigator)
+const AuthNavigator = createStackNavigator(
+  {
+    Auth: AuthScreen
+  },
+  {
+    defaultNavigationOptions: defaultNavOptions
+  }
+)
+
+const MainNavigator = createSwitchNavigator({
+  Auth: AuthNavigator,
+  Shop: ShopNavigator
+})
+
+export default createAppContainer(MainNavigator)
