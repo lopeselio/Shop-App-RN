@@ -7,11 +7,12 @@ export const SET_PRODUCTS = 'SET_PRODUCTS'
 
 export const fetchProducts = () => {
   const fetch = require('node-fetch')
-  return async dispatch => {
+  return async (dispatch, getState) => {
+    const token = getState().auth.token
     // any async code you want!
     try {
       const response = await fetch(
-        'https://shopapp-reactnative-e0556.firebaseio.com/products.json'
+        `https://shopapp-reactnative-e0556.firebaseio.com/products.json?auth=${token}`
       )
 
       if (!response.ok) {
@@ -59,10 +60,11 @@ export const deleteProduct = productId => {
 export const createProduct = (title, description, imageUrl, price) => {
   const fetch = require('node-fetch')
 
-  return async dispatch => {
+  return async (dispatch, getState) => {
+    const token = getState().auth.token
     // any async code you want!
     const response = await fetch(
-      'https://shopapp-reactnative-e0556.firebaseio.com/products.json',
+      `https://shopapp-reactnative-e0556.firebaseio.com/products.json?auth=${token}`,
       {
         method: 'POST',
         headers: {
@@ -95,9 +97,10 @@ export const createProduct = (title, description, imageUrl, price) => {
 export const updateProduct = (id, title, description, imageUrl) => {
   const fetch = require('node-fetch')
 
-  return async dispatch => {
-    await fetch(
-      `https://shopapp-reactnative-e0556.firebaseio.com/products/${id}.json`,
+  return async (dispatch, getState) => {
+    const token = getState().auth.token
+    const response = await fetch(
+      `https://shopapp-reactnative-e0556.firebaseio.com/products/${id}.json?auth=${token}`,
       {
         method: 'PATCH',
         headers: {
