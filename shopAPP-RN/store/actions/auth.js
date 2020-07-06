@@ -1,6 +1,8 @@
-export const SIGNUP = 'SIGNUP';
+// 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithCustomToken?key=AIzaSyDnOdYmXTl9w2QUerDiD8seec0dIDlbJOo',
+export const SIGNUP = 'SIGNUP'
 
 export const signup = (email, password) => {
+  const fetch = require('node-fetch')
   return async dispatch => {
     const response = await fetch(
       'https://identitytoolkit.googleapis.com/v1/accounts:signInWithCustomToken?key=AIzaSyDnOdYmXTl9w2QUerDiD8seec0dIDlbJOo',
@@ -15,14 +17,14 @@ export const signup = (email, password) => {
           returnSecureToken: true
         })
       }
-    );
+    )
 
     if (!response.ok) {
-      throw new Error('Something went wrong!');
+      throw new Error('Something went wrong!')
     }
 
-    const resData = await response.json();
-    console.log(resData);
-    dispatch({ type: SIGNUP });
-  };
-};
+    const resData = await response.json()
+    console.log(resData)
+    dispatch({ type: SIGNUP })
+  }
+}
