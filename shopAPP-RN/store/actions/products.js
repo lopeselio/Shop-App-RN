@@ -46,13 +46,19 @@ export const fetchProducts = () => {
 export const deleteProduct = productId => {
   const fetch = require('node-fetch')
 
-  return async dispatch => {
-    await fetch(
+  return async (dispatch, getState) => {
+    const token = getState().auth.tokem
+
+    const response = await fetch(
       `https://shopapp-reactnative-e0556.firebaseio.com/products/${productId}.json`,
       {
         method: 'DELETE'
       }
     )
+
+    if (!response.ok) {
+      throw new Error('Something went wrong!')
+    }
     dispatch({ type: DELETE_PRODUCT, pid: productId })
   }
 }
@@ -62,6 +68,8 @@ export const createProduct = (title, description, imageUrl, price) => {
 
   return async (dispatch, getState) => {
     const token = getState().auth.token
+    const userId = getState().auth.userId
+
     // any async code you want!
     const response = await fetch(
       `https://shopapp-reactnative-e0556.firebaseio.com/products.json?auth=${token}`,
@@ -74,7 +82,8 @@ export const createProduct = (title, description, imageUrl, price) => {
           title,
           description,
           imageUrl,
-          price
+          price,
+          ownerId: userId
         })
       }
     )
@@ -88,7 +97,8 @@ export const createProduct = (title, description, imageUrl, price) => {
         title,
         description,
         imageUrl,
-        price
+        price,
+        ownerId: userId
       }
     })
   }
