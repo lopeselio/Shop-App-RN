@@ -3,6 +3,11 @@
 import { AsyncStorage } from 'react-native'
 export const SIGNUP = 'SIGNUP'
 export const LOGIN = 'LOGIN'
+export const AUTHENTICATE = 'AUTHENTICATE';
+
+export const authenticate = (userId, token) => {
+  return { type: AUTHENTICATE, userId: userId, token: token };
+};
 
 export const signup = (email, password) => {
   const fetch = require('node-fetch')
