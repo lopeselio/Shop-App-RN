@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import {
   View,
+  Text,
   FlatList,
   Platform,
   ActivityIndicator,
@@ -35,6 +36,13 @@ const OrdersScreen = props => {
     )
   }
 
+  if (orders.length === 0) {
+    return (
+      <View style={{ flex:1, justifyContent: 'center', alignItems: 'center' }}>
+        <Text>No orders found, start creating some!</Text>
+      </View>
+    )
+  }
   return (
     <FlatList
       data={orders}
