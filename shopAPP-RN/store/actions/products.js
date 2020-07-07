@@ -9,6 +9,8 @@ export const fetchProducts = () => {
   const fetch = require('node-fetch')
   return async (dispatch, getState) => {
     const token = getState().auth.token
+    const userId = getState().auth.userId
+
     // any async code you want!
     try {
       const response = await fetch(
@@ -35,7 +37,7 @@ export const fetchProducts = () => {
         )
       }
 
-      dispatch({ type: SET_PRODUCTS, products: loadedProducts })
+      dispatch({ type: SET_PRODUCTS, products: loadedProducts, userProducts.filter(prod => prod.ownerId === userId) })
     } catch (err) {
       // send to custom analytics server
       throw err
