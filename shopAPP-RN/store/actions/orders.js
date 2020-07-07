@@ -44,7 +44,7 @@ export const addOrder = (cartItems, totalAmount) => {
     const userId = getState().auth.userId
     const date = new Date()
     const response = await fetch(
-      `https://shopapp-reactnative-e0556.firebaseio.com/orders/u1.json?auth=${token}`,
+      `https://shopapp-reactnative-e0556.firebaseio.com/orders/${userId}.json?auth=${token}`,
       {
         method: 'POST',
         headers: {
