@@ -19,6 +19,7 @@ import EditProductScreen from '../screens/user/EditProductScreen'
 import AuthScreen from '../screens/user/AuthScreen'
 import StartupScreen from '../screens/StartupScreen'
 import Colors from '../constants/Colors'
+import * as authActions from '../store/actions/auth'
 
 const defaultNavOptions = {
   headerStyle: {
@@ -104,9 +105,13 @@ const ShopNavigator = createDrawerNavigator(
       const dispatch = useDispatch()
       return (
         <View style={{ flex: 1, paddingTop: 20 }}>
-          <SafeAreaView forceInset={{ top: 'always', horizontal: 'never' }} >
+          <SafeAreaView forceInset={{ top: 'always', horizontal: 'never' }}>
             <DrawerItems {...props} />
-            <Button title='Logout' color={Colors.primary} onPress={() => {}} />
+            <Button title='Logout' color={Colors.primary} onPress={() => {
+              dispatch(authActions.logout())
+              props.navigation.navigate('Auth')
+            }} 
+            />
           </SafeAreaView>
         </View>
       )
