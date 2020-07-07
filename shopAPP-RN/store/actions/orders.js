@@ -6,10 +6,12 @@ export const SET_ORDERS = 'SET_ORDERS'
 export const fetchOrders = () => {
   const fetch = require('node-fetch')
 
-  return async dispatch => {
+  return async (dispatch, getState) => {
+    const userId = getState().auth.userId
+
     try {
       const response = await fetch(
-        'https://shopapp-reactnative-e0556.firebaseio.com/orders/u1.json'
+        `https://shopapp-reactnative-e0556.firebaseio.com/orders/${userId}.json`
       )
 
       if (!response.ok) {
