@@ -36,6 +36,8 @@ export const signup = (email, password) => {
     const resData = await response.json()
     console.log(resData)
     dispatch({ type: SIGNUP, token: resData.idToken, userId: resData.localId })
+    const expirationDate = new Date(new Date().getTime + parseInt(resData.expiresIn) * 1000)
+    SaveDataToStorage(resData.idToken, resData.localId, expirationDate)
   }
 }
 
@@ -73,13 +75,14 @@ export const login = (email, password) => {
     console.log(resData)
     dispatch({ type: LOGIN, token: resData.idToken, userId: resData.localId })
     const expirationDate = new Date(new Date().getTime + parseInt(resData.expiresIn) * 1000)
-    SaveDataToStorage(resData.idToken, resData.localId)
+    SaveDataToStorage(resData.idToken, resData.localId, expirationDate)
   }
 }
 
-const SaveDataToStorage = (token, userId) => {
+const SaveDataToStorage = (token, userId, expirationDate) => {
   AsyncStorage.setItem('userData', JSON.stringify({
     token: token,
     userId: userId
+    expiryDate: expirationDate.toISOString()
   }))
 }
