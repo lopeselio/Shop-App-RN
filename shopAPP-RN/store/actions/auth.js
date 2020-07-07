@@ -1,8 +1,8 @@
 // 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDnOdYmXTl9w2QUerDiD8seec0dIDlbJOo',
 // 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDnOdYmXTl9w2QUerDiD8seec0dIDlbJOo',
 import { AsyncStorage } from 'react-native'
-export const SIGNUP = 'SIGNUP'
-export const LOGIN = 'LOGIN'
+// export const SIGNUP = 'SIGNUP'
+// export const LOGIN = 'LOGIN'
 export const AUTHENTICATE = 'AUTHENTICATE';
 
 export const authenticate = (userId, token) => {
