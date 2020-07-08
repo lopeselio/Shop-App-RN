@@ -1,4 +1,6 @@
+// shopapp-reactnative-e0556.firebaseio.com
 import Product from '../../models/product'
+
 export const DELETE_PRODUCT = 'DELETE_PRODUCT'
 export const CREATE_PRODUCT = 'CREATE_PRODUCT'
 export const UPDATE_PRODUCT = 'UPDATE_PRODUCT'
@@ -49,7 +51,6 @@ export const fetchProducts = () => {
 
 export const deleteProduct = productId => {
   const fetch = require('node-fetch')
-
   return async (dispatch, getState) => {
     const token = getState().auth.token
     const response = await fetch(
@@ -68,7 +69,6 @@ export const deleteProduct = productId => {
 
 export const createProduct = (title, description, imageUrl, price) => {
   const fetch = require('node-fetch')
-
   return async (dispatch, getState) => {
     // any async code you want!
     const token = getState().auth.token
@@ -108,7 +108,6 @@ export const createProduct = (title, description, imageUrl, price) => {
 
 export const updateProduct = (id, title, description, imageUrl) => {
   const fetch = require('node-fetch')
-
   return async (dispatch, getState) => {
     const token = getState().auth.token
     const response = await fetch(
