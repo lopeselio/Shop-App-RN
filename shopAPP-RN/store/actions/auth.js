@@ -52,7 +52,7 @@ export const login = (email, password) => {
   const fetch = require('node-fetch')
   return async dispatch => {
     const response = await fetch(
-      'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBY8UJq_xLD0nEe1HZHuvEOUfYIS9gg4pA',
+      'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDnOdYmXTl9w2QUerDiD8seec0dIDlbJOo',
       {
         method: 'POST',
         headers: {
