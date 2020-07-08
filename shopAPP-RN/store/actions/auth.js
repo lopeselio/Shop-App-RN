@@ -15,6 +15,7 @@ export const authenticate = (userId, token, expiryTime) => {
 }
 
 export const signup = (email, password) => {
+  const fetch = require('node-fetch')
   return async dispatch => {
     const response = await fetch(
       'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDnOdYmXTl9w2QUerDiD8seec0dIDlbJOo',
@@ -58,6 +59,7 @@ export const signup = (email, password) => {
 }
 
 export const login = (email, password) => {
+  const fetch = require('node-fetch')
   return async dispatch => {
     const response = await fetch(
       'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDnOdYmXTl9w2QUerDiD8seec0dIDlbJOo',
